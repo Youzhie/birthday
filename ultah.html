@@ -1,0 +1,345 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Quiet Little Moments</title>  <!-- Google Fonts -->  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">  <style>
+    body {
+      font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg,#fae6ee 0%,#f9e2ea 40%,#f7dbe4 100%);
+      color: #3a3a3a;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    header {
+      text-align: center;
+      padding: 32px 10px 20px 10px;
+    }
+
+    header h1 {
+      margin: 0 0 12px 0;
+      font-size: 2.6rem;
+      font-weight: 600;
+      font-family: 'Playfair Display', serif;
+      color: #2e2e2e; /* elegant darker heading */
+      letter-spacing: 0.4px;
+    }
+
+    header p {
+      margin: 0;
+      color: #5d5d5d;
+      font-size: 1.05rem;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6rem;
+    }
+
+    .divider {
+      width: 70px;
+      height: 1.5px;
+      background:#d9a7b8;
+      opacity:.7;
+      margin: 18px auto 8px auto;
+      border-radius: 2px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      margin-top: 32px;
+    }
+
+    .card {
+      background: #ffffffcf;
+      border-radius: 18px;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.06);
+      overflow: hidden;
+      position: relative;
+      transition: transform .25s ease, box-shadow .25s ease;
+      border: 1px solid #f1cfdc66;
+      backdrop-filter: blur(1px);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 26px rgba(0,0,0,0.08);
+    }
+
+    .card img {
+      width: 100%;
+      aspect-ratio: 1 / 1; /* keep perfect square */
+      object-fit: cover;
+      display: block;
+    }
+
+    .overlay-top {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      padding: 4px 8px;
+      color: #ffffff;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.98rem; /* slightly larger than body */
+      letter-spacing: .2px;
+      text-shadow: 0 2px 8px rgba(0,0,0,.35);
+      pointer-events: none;
+      max-width: 90%;
+    }
+
+    .overlay-bottom {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      padding: 8px 12px;
+      color: #ffffff;
+      font-size: 0.86rem; /* smaller body text */
+      line-height: 1.35rem; /* tighter spacing */
+      text-shadow: 0 2px 10px rgba(0,0,0,.45);
+      pointer-events: none;
+      max-width: 92%;
+    }
+
+    
+
+    
+
+    .message {
+      text-align:center;
+      max-width:700px;
+      margin: 72px auto 40px auto;
+      padding: 0 18px;
+    }
+
+    .message h2 {
+      font-family:'Playfair Display',serif;
+      font-size:1.9rem;
+      margin-bottom:10px;
+      color:#2e2e2e;
+    }
+
+    .message p {
+      color:#4a4a4a;
+      line-height:1.7rem;
+      font-size:1.05rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 28px;
+      color: #6b6b6b;
+      font-size: 0.93rem;
+      padding: 18px 0 28px 0;
+      letter-spacing: 0.3px;
+      border-top:1px solid #e6bacb80;
+    }
+
+    /* enforce font styles */
+h1, h2, .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin: 14px 18px 2px;
+      padding-top: 6px;
+      color: #3a2f35;
+      text-align: center;
+      display: block;
+    }
+
+p, .opening, .message p, .card p {
+      padding: 4px 18px 16px;
+      margin-top: 2px;
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.55rem;
+      text-align: center;
+    }
+
+/* subtle fade-in */
+    .fadein {opacity:0; transform:translateY(8px); animation:fade .8s forwards ease-out;}
+    .fadein:nth-child(1){animation-delay:.05s}
+    .fadein:nth-child(2){animation-delay:.12s}
+    .fadein:nth-child(3){animation-delay:.19s}
+    .fadein:nth-child(4){animation-delay:.26s}
+
+    @keyframes fade{to{opacity:1;transform:none}}
+
+    /* square photo container */
+    .photo-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      border-radius: 18px;
+    }
+
+    .photo-box img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* bubble title */
+    .photo-title {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 18px;
+      background: rgba(255, 250, 240, 0.75);
+      backdrop-filter: blur(12px);
+      border-radius: 999px;
+      border: 1px solid rgba(255, 240, 220, 0.9);
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #574b44;
+      box-shadow: 0 12px 26px rgba(0,0,0,0.12);
+      text-align: center;
+    }
+
+    /* bubble message */
+    .photo-message {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 16px;
+      max-width: 85%;
+      line-height: 1.45;
+      background: rgba(255, 250, 240, 0.65);
+      backdrop-filter: blur(12px);
+      border-radius: 18px;
+      border: 1px solid rgba(255, 240, 220, 0.8);
+      font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+      font-size: 0.85rem;
+      color: #5a4c45;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.10);
+      text-align: center;
+      opacity: 0.95;
+      transition: transform .25s ease, box-shadow .25s ease, opacity .25s ease;
+    }
+
+    .photo-title {
+      transition: transform .25s ease, box-shadow .25s ease, opacity .25s ease;
+      opacity: 0.95;
+    }
+
+    .card:hover .photo-title,
+    .card:hover .photo-message {
+      transform: translateX(-50%) translateY(-2px);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.16);
+      opacity: 1;
+    }
+
+    @media(max-width:600px){
+      header h1{font-size:2.1rem}
+    }
+      .card img{height:200px}
+    }
+
+</style></head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Our Quiet Little Moments</h1>
+      <p>Beberapa kenangan kecil kita. Sederhana, tapi berarti banyak untukku.</p>
+    </header><section class="opening" style="text-align:center; max-width:720px; margin: 6px auto 22px auto; padding:0 18px; line-height:1.65rem; color:#4a4a4a;">
+  Ini hanyalah cara kecil Ogi untuk bilang kalau kehadiran Nda berarti untuk Ogi.<br>
+  Beberapa momen kecil kita, yang diam-diam selalu Ogi simpan baik-baik.
+</section>
+
+<section class="gallery">
+  <div class="card fadein">
+    <img src="foto1.jpg" alt="Memory 1">
+    <h3 class="card-title">Momen awal bersama, 16-01-2023</h3>
+    <p>Mungkin di sini semuanya mulai terasa berbeda. Denganmu, hal-hal kecil jadi terasa istimewa.</p>
+  </div>
+
+  <div class="card fadein">
+    <img src="foto2.jpg" alt="Memory 2">
+    <h3 class="card-title">Tenangnya aku, tenangnya kamu</h3>
+    <p>Aku suka saat kita bisa jadi diri sendiri. Tanpa perlu banyak bicara — rasanya tetap hangat.</p>
+  </div>
+
+  <div class="card fadein">
+    <img src="foto3.jpg" alt="Memory 3">
+    <h3 class="card-title">Tempat pulang paling tenang</h3>
+    <p>Tawa kamu selalu berhasil menenangkan aku, bahkan di hari-hari yang terasa berat.</p>
+  </div>
+
+  <div class="card fadein">
+    <img src="foto4.jpg" alt="Memory 4">
+    <h3 class="card-title">Berjalan pelan, tapi bersama</h3>
+    <p>Aku bersyukur bisa kenal kamu sejauh ini. Terima kasih sudah hadir dengan cara yang lembut.</p>
+  </div>
+</section>
+
+    <div class="divider"></div>
+
+<section class="message">
+  <h2>Birthday Wishes</h2>
+  <p>
+    Selamat ulang tahun. Semoga bertambahnya usia membawa kedamaian dan kebahagiaan dalam hidup Nda.<br><br>
+    Maaf, untuk ulang tahun kali ini Ogi belum bisa ngasih apa-apa.<br>
+    Semoga hadiah sederhana ini tetap bisa menjadi sesuatu yang berarti untuk Nda.
+  </p>
+</section>
+
+<div class="divider"></div>
+
+<section class="message">
+  <h2>Why You</h2>
+  <p>
+    Nda punya cara yang lembut untuk hadir dalam hidup Ogi.<br><br>
+    Dengan Nda, hal-hal kecil terasa lebih hangat.<br>
+    Dan entah sejak kapan — Ogi mulai merasa<br>
+    kalau dunia ini jadi sedikit lebih tenang saat ada Nda.
+  </p>
+</section>
+
+<div class="divider"></div>
+
+<section class="message">
+  <h2>A Quiet Wish for You</h2>
+  <p>
+    Semoga dunia selalu lembut sama kamu.<br><br>
+    Dan kalau pun ada hari-hari yang terasa berat,<br>
+    semoga Nda tetap ingat<br>
+    kalau ada seseorang yang selalu percaya<br>
+    kalau kamu berharga — apa adanya.
+  </p>
+</section>
+
+<div class="divider"></div>
+
+<section class="message">
+  <h2>A Note from Me</h2>
+  <p>
+    Ogi nggak butuh hal yang besar.<br><br>
+    Cukup jalan pelan-pelan sama Nda,<br>
+    menikmati hal-hal kecil<br>
+    dan saling ada — itu sudah lebih dari cukup.
+  </p>
+</section>
+
+  <footer class="text-center text-sm opacity-80 pb-8 mt-16">
+    Y&amp;D 2026, Youzhie all rights reserved
+  </footer>
+</body>
+</html>
